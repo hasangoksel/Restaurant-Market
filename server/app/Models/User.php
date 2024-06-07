@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Address;
+use App\Models\UserSCart;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -19,8 +22,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
         'password',
+        'phone',
+        'privacyConfirm',
+        'notification'
     ];
 
     /**
@@ -42,4 +49,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function addresses(): BelongsToMany
+    {
+        return $this->belongsToMany(Address::class, 'user_addresses', 'user_id', 'address_id')->using(UserAddress::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(UserSCart::class,'user_id');
+    }
 }

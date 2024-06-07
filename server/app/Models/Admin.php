@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
+
+class Admin extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'nickName',
+        'password'
+    ];
+
+     /**
+     * Set the admin's password.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
+}
