@@ -7,7 +7,7 @@
                 <li><a href="#" @click="closeMenu">Market</a></li>
             </ul>
         </div>
-        <nav class="nav">
+        <nav>
             <div class="nav__logo">
                 <img src="../assets/logo/logo.svg" alt="Yummykitchen Logo">
             </div>
@@ -126,15 +126,15 @@ export default {
     color: #000;
 }
 
-.nav {
+nav {
     position: sticky;
     top: 0;
     padding: 1% 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #000;
-    color: #FFF;
+    background: #FFF;
+    color: #000;
     font-size: 1.4rem;
     z-index: 99;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -154,7 +154,7 @@ export default {
 
 .nav__links span i {
     cursor: pointer;
-    color: #FFF;
+    color: #000;
     transition: color .3s ease-in-out;
 }
 
@@ -165,7 +165,7 @@ export default {
 .nav__links p i {
     font-size: 1.6rem;
     cursor: pointer;
-    color: #FFF;
+    color: #000;
     transition: all .5s ease-in-out;
 }
 
