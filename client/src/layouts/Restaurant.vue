@@ -1,5 +1,6 @@
 <template>
     <div>
+        <yummy-nav></yummy-nav>
         <div class="campaign">
             <div class="slider-container">
                 <div class="slider" :style="sliderStyle" @click="nextImage">
@@ -39,9 +40,11 @@
 
 <script>
 import Footer from '../components/Footer.vue'
+import YummyNav from '../components/Navbar.vue'
 export default {
     components:{
-            'yummy-footer': Footer
+            'yummy-footer': Footer,
+            'yummy-nav': YummyNav
     },
     data() {
         return {
@@ -265,8 +268,9 @@ button {
 .products__item__basket :nth-child(2) {
     cursor: pointer;
     font-size: .9rem;
+    font-weight: 500;
     color: #FF1D35;
-    border: 1.2px solid#FF1D35;
+    border: 2px solid#FF1D35;
     padding: 3% 10%;
     border-radius: 10px;
     margin-top: 10%;
@@ -278,7 +282,7 @@ button {
 .products__item__basket :nth-child(2):hover {
     background: #FF1D35;
     color: #FFF;
-    border: 1px solid #FF1D35;
+    border: 2px solid #FF1D35;
 }
 
 .products__item__basket :nth-child(2) i {
