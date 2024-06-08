@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->tinyInteger('category_id')->unsigned()->autoIncrement();
-            $table->foreignId('type_id');
+            $table->tinyIncrements('category_id');
+            $table->unsignedTinyInteger('type_id');
             $table->string('category',30);
             $table->timestamps();
 
-            $table->foreign('typeID')->references('typeID')->on('types');
+            $table->foreign('type_id')->references('type_id')->on('types');
         });
     }
 

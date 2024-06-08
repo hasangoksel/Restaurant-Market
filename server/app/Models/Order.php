@@ -13,13 +13,13 @@ class Order extends Model
         'sCartNumber'
     ];
 
-    public function userAdresses()
+    public  function userAdresses()
     {
-        return $this->hasMany(UserAddress::class,'user_address_id');
+        return $this->belongsTo(UserAddress::class,'user_address_id');
     }
 
-    public function states()
+    public  function states()
     {
-        return $this->hasMany(State::class,'state_id');
+        return $this->belongsTo(State::class,'state_id');
     }
 }

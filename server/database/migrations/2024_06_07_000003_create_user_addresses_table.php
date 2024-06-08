@@ -13,9 +13,12 @@ return new class extends Migration
         {
             Schema::create('user_addresses', function (Blueprint $table) {
                 $table->increments('user_address_id');
-                $table->foreignId('user_id')->constrained()->onDelete('cascade');
-                $table->foreignId('address_id')->constrained()->onDelete('cascade');
+                $table->unsignedInteger('user_id');
+                $table->unsignedInteger('address_id');
                 $table->timestamps();
+
+                $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+                $table->foreign('address_id')->references('address_id')->on('addresses')->onDelete('cascade');
             });
         }
 

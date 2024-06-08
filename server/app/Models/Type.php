@@ -12,4 +12,14 @@ class Type extends Model
     protected $fillable = [
         'type'
     ];
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class,'type_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class,'type_id');
+    }
 }

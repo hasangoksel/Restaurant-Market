@@ -13,8 +13,8 @@ class State extends Model
         'name'
     ];
 
-    public  function orders()
+    public function orders()
     {
-        return $this->belongsTo(Order::class,'state_id');
+        return $this->hasMany(Order::class,'state_id');
     }
 }

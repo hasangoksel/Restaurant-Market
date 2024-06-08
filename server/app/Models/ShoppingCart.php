@@ -15,4 +15,9 @@ class ShoppingCart extends Model
         'count',
         'price'
     ];
+
+    public function products()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
 }

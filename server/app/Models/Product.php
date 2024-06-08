@@ -9,6 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'product_id';
+
     protected $fillable = [
         'name',
         'detail',
@@ -17,4 +19,19 @@ class Product extends Model
         'discountRate',
         'image'
     ];
+
+    public function shopCarts()
+    {
+        return $this->hasMany(ShoppingCart::class,'product_id');
+    }
+
+    public function types()
+    {
+        return $this->belongsTo(Type::class,'type_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsTo(Category::class,'category_id');
+    }
 }
