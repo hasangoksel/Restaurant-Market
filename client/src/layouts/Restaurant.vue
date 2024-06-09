@@ -81,8 +81,6 @@ export default {
             currentImageIndex: 0,
             images: [
                 'campaign.jpg',
-                'campaign-2.jpg',
-                'campaign.jpg'
             ]
         }
     },
@@ -97,7 +95,7 @@ export default {
     },
     methods: {
         getImageUrl(image) {
-            return new URL(`../assets/${image}`, import.meta.url).href;
+            return new URL(`../assets/restaurant-page/${image}`, import.meta.url).href;
         },
         nextImage() {
             this.currentImageIndex =

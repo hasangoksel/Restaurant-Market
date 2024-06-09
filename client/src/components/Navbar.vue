@@ -9,7 +9,7 @@
         </div>
         <nav>
             <div class="nav__logo">
-                <img src="../assets/logo/logo.svg" alt="Yummykitchen Logo">
+                <img src="../assets/logo/logosiyah.svg" alt="Yummykitchen Logo">
             </div>
             <div class="nav__links">
                 <span><i class="fa-solid fa-user"></i></span>

@@ -1,15 +1,15 @@
 <template>
-  <restaurant></restaurant>
+  <market></market>
 </template>
 <script>
-import Navbar from './components/Navbar.vue';
+import Market from './layouts/Market.vue';
 import Restaurant from './layouts/Restaurant.vue'
 import Welcome from './layouts/Welcome.vue'
 export default{
   components:{
     'welcome': Welcome,
     'restaurant': Restaurant,
-    'navbar': Navbar
+    'market': Market
   }
 }
 </script>
