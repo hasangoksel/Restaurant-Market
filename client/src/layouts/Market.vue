@@ -32,7 +32,7 @@
                                 <span>{{ item.count }}</span>
                                 <i class="fa-solid fa-plus" @click="item.count++"></i>
                             </div>
-                            <span> € {{ item.price * item.count }}</span>
+                            <span> € {{ item.price }}</span>
                         </div>
                         <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Add to Basket</span>
                     </div>
@@ -99,7 +99,14 @@ export default {
                     name: "Product",
                     count: 1,
                     price: 3,
-                }
+                },
+                {
+                    id: 4,
+                    image: "product-2.jpg",
+                    name: "Product",
+                    count: 1,
+                    price: 20,
+                },
             ]
         }
     },

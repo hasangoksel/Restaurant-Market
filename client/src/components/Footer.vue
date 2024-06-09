@@ -1,28 +1,34 @@
 <template>
-    <footer>
-        <div class="footer__info">
-            <div class="footer__info__logo">
-                <img src="../assets/logo/logo.svg" alt="Yummykitchen Logo">
+    <div class="footer">
+        <footer>
+            <div class="footer__info">
+                <div class="footer__info__logo">
+                    <img src="../assets/logo/logo.svg" alt="Yummykitchen Logo">
+                </div>
+                <div class="footer__info__content">
+                    <a href="mailto:info@yummykitchen.com"><i class="fa-solid fa-envelope"></i> info@yummykitchen.com</a>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i> Plattenstrasse 26 Street Regensdorf, Switzerland</a>
+                    <a href="tel: +410444211547"><i class="fa-solid fa-phone"></i> (+41) 044 421 15 47</a>
+                </div>
             </div>
-            <div class="footer__info__content">
-                <a href="mailto:info@yummykitchen.com"><i class="fa-solid fa-envelope"></i> info@yummykitchen.com</a>
-                <a href="#"><i class="fa-solid fa-location-dot"></i> Plattenstrasse 26 Street Regensdorf, Switzerland</a>
-                <a href="tel: +410444211547"><i class="fa-solid fa-phone"></i> (+41) 044 421 15 47</a>
+            <div class="footer__about">
+                <h4>About Us</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam iste ratione nihil dignissimos itaque tenetur nostrum similique consequatur dolorum ipsum modi corporis deleniti repellat laboriosam, aut voluptas. Aut, reprehenderit placeat magni in repellat alias nulla?</p>
             </div>
-        </div>
-        <div class="footer__about">
-            <h4>About Us</h4>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam iste ratione nihil dignissimos itaque tenetur nostrum similique consequatur dolorum ipsum modi corporis deleniti repellat laboriosam, aut voluptas. Aut, reprehenderit placeat magni in repellat alias nulla?</p>
-        </div>
-        <div class="footer__social">
-            <h4>Social Media</h4>
-            <div class="footer__social__links">
-                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i> Youtube</a>
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i>  Instagram</a>
-                <a href="https://x.com/home"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+            <div class="footer__social">
+                <h4>Social Media</h4>
+                <div class="footer__social__links">
+                    <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i> Youtube</a>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i>  Instagram</a>
+                    <a href="https://x.com/home"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+                </div>
             </div>
+        </footer>
+        <div class="copyright">
+            <p>© 2024 Yummykitchen | Designed by</p>
+            <a href="https://www.hematitagency.com.tr"><img src="../assets/logo/logo-hematit.svg" alt="Hematit Agency Logo"></a>
         </div>
-    </footer>
+    </div>
 </template>
 
 <script>
@@ -32,9 +38,31 @@
 </script>
 
 <style scoped>
+.footer{
+    background: #000;
+}
+.copyright{
+    padding-bottom: 2%;
+    height: 75px;
+    color: #FFF;
+    text-align: center;
+    font-size: .9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.copyright a{
+    margin-left: 1%;
+}
+.copyright img{
+    width: 100px;
+    height: 75px;
+    zoom: 1.2   ;
+}
+
 footer{
     background: #000;
-    padding: 3% 5%;
+    padding: 2% 5%;
     display: flex;
     justify-content: space-around;
     align-items: center;
