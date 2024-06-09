@@ -9,13 +9,6 @@ use App\Models\Type;
 
 class ProductController extends Controller
 {
-
-    //Ürün fotoğrafını dosyaya kaydetmek.
-    //Satılan ürün sayısını kaldır. onun yerine isfavourite sütunu ekle (boolen)
-    //Count sütunu kaldır.
-    //isFavourite olanları getiren api yaz. Default 0 gelecek. 
-
-
     /**
      * Display a listing of the resource.
      */
@@ -56,11 +49,10 @@ class ProductController extends Controller
             'type_id' => 'required|exists:types,type_id',
             'name' => 'required|string|max:255',
             'detail' => 'required|string',
-            'count' => 'required|integer',
             'price' => 'required|numeric',
             'discountRate' => 'required|integer',
             'image' => 'required|string',
-            'quentitySold' => 'required|integer', //satılan adet
+            'isFavourite' => 'required|boolean', 
         ]);
 
         $type_id = $validateData['type_id'];
@@ -74,11 +66,10 @@ class ProductController extends Controller
         $product -> type_id = $type_id;
         $product -> name = $validateData['name'];
         $product -> detail = $validateData['detail'];
-        $product -> count = $validateData['count'];
         $product -> price = $validateData['price'];
         $product -> discountRate = $validateData['discountRate'];
         $product -> image = $validateData['image'];
-        $product -> quentitySold = $validateData['quentitySold']; //satılan adet
+        $product -> isFavourite = $validateData['isFavourite']; 
         $product -> save();
 
         return response()->json($product,201);
@@ -110,11 +101,10 @@ class ProductController extends Controller
             'type_id' => 'required|exists:types,type_id',
             'name' => 'required|string|max:255',
             'detail' => 'required|string',
-            'count' => 'required|integer',
             'price' => 'required|numeric',
             'discountRate' => 'required|integer',
             'image' => 'required|string',
-            'quentitySold' => 'required|integer',
+            'isFavourite' => 'required|boolean',
         ]);
 
         $product = Product::findOrFail($id);
@@ -123,11 +113,10 @@ class ProductController extends Controller
         $product -> type_id = $validatedData['type_id'];
         $product -> name = $validatedData['name'];
         $product -> detail = $validatedData['detail'];
-        $product -> count = $validatedData['count'];
         $product -> price = $validatedData['price'];
         $product -> discountRate = $validatedData['discountRate'];
         $product -> image = $validatedData['image'];
-        $product -> quentitySold = $validatedData['quentitySold']; //satılan adet
+        $product -> isFavourite = $validatedData['isFavourite']; 
         $product -> save();
 
         return response()->json($product,200);
@@ -141,5 +130,30 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product -> delete();
         return response()->json(['success'=>'Ürün Silindi!'],204);
+    }
+
+    //Favori ürünleri listeler
+    public function getFavourites()
+    {
+        $favParoducts = Product::where('isFavourite',1)->get();
+        return response()->json($favParoducts,200);
+    }
+
+    //Ürün fotoğraflarını kaydeder
+    public function upload(Request $request)
+    {
+        $request -> validate([
+            'image'=>'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+
+        if($request->file('image')){
+            $image = $request->file('image');
+            $path = $image->store('images','public'); //dosyayı 'public/images' dizinine kaydediyor.
+
+            $imageName = $image->hashName(); //Bu yolda saklanan dosya ismi.
+
+            return response()->json(['success'=>'Resim Başarıyla Yüklendi!','image_path'=> $path],200);
+        }
+        return response()->json(['error'=>'Resim Yüklenemedi',400]);
     }
 }

@@ -17,11 +17,10 @@ return new class extends Migration
             $table->unsignedTinyInteger('type_id');
             $table->string('name');
             $table->string('detail');
-            $table->integer('count')->unsigned();
             $table->decimal('price',10,2);
             $table->tinyInteger('discountRate')->unsigned();
             $table->string('image');
-            $table->integer('quentitySold');
+            $table->boolean('isFavourite')->default(false);
             $table->timestamps();
 
             $table->foreign('category_id')->references('category_id')->on('categories');

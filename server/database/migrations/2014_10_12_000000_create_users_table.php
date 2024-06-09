@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('user_id'); //int veri tipi, otomatik artan ve işaretsiz olarak tanımlar.
             $table->string('name',50);
             $table->string('surname',50);
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone',14);

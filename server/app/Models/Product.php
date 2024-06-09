@@ -14,10 +14,10 @@ class Product extends Model
     protected $fillable = [
         'name',
         'detail',
-        'count',
         'price',
         'discountRate',
-        'image'
+        'image',
+        'isFavourite'
     ];
 
     public function shopCarts()
