@@ -12,3 +12,15 @@ body{
 }
 
 
+.form__item input{
+    height: 35px;
+    width: 20rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    box-shadow: none;
+}
+.form__item input[type='email']:focus{
+    border: 1px solid #FF1D35;
+}
+
