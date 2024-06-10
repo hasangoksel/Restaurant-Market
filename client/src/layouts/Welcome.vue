@@ -1,120 +1,102 @@
 <template>
     <div class="welcome">
-        <div class="restaurant">
-            <div class="content">
-                <h2>Restaurant</h2>
-                <span>See Products <i class="fa-solid fa-arrow-right"></i></span>
-            </div>
-            <div class="image">
-                <img src="../assets/burger-welcome.png" alt="Burger">
-            </div>
+        <div class="logo">
+            <router-link to="/">
+                <img src="../assets/logo/logosiyah.svg" alt="Yummykitchen Logo">
+            </router-link>
         </div>
-        <div class="market">
-            <div class="content">
-                <h2>Market</h2>
-                <span>See Products <i class="fa-solid fa-arrow-right"></i></span>
+        <div class="welcome-nav">
+            <div class="welcome-nav__section">
+                <div class="content">
+                    <h2>Restaurant</h2>
+                    <router-link to="/en/restaurant">See Products <i class="fa-solid fa-arrow-right"></i></router-link>
+                </div>
+                <div class="image">
+                    <img src="../assets/welcome-page/burger-welcome.png" alt="Restaurant Products Image">
+                </div>
             </div>
-            <div class="image">
-                <img src="../assets/market-welcome.png" alt="Market Basket">
+            <div class="welcome-nav__section">
+                <div class="content">
+                    <h2>Supermarket</h2>
+                    <router-link to="/en/supermarket">See Products <i class="fa-solid fa-arrow-right"></i></router-link>
+                </div>
+                <div class="image">
+                    <img src="../assets/welcome-page/market-welcome.png" alt="Supermarket Products Image" >
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+
 </script>
 
 <style scoped>
 .welcome{
     margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgb(255,11,11);
-    background: linear-gradient(90deg, rgba(255,11,11,1) 0%, rgba(255,11,11,1) 35%, rgba(0,9,255,1) 100%);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.restaurant{
-    margin: 0;
-    padding: 0;
-    width: 50%;
-    height: 100vh;
+    padding: 2% 20%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: center;
 }
-.restaurant .content {
-    margin-top: 12%;
+.logo{
+    width: 100%;
+    text-align: center;
 }
-.restaurant .content h2{
-    font-size: 5rem;
-    color: white;
-    margin-left: 10%;
-}
-.restaurant .content span{
-    cursor: pointer;
-    font-size: 1.05rem;
-    padding: 2% 4%;
-    border-radius: 20px;
-    color: black;
-    background: white;
-    margin-left: 10%;
-}
-.restaurant .image{
-    height: 60%;
-    margin-top: -8%;
-    margin-left: 22%;
-    margin-bottom: 10%;
-}
-.restaurant .image img{
-    zoom: 1.2;
-    width: 400px;
-    height: 400px;
-}
-.market{
-    margin: 0;
-    padding: 0;
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-.market .content{
-    margin-top: 15%;
-}
-.market .content h2{
-    font-size: 5rem;
-    color: white;
-    margin-left: 20%;
-}
-.market .content span{
-    cursor: pointer;
-    font-size: 1.05rem;
-    padding: 3% 5%;
-    border-radius: 20px;
-    color: black;
-    background: white;
-    margin-left: 20%;
-}
-.market .image{
-    height: 60%;
-    margin-top: -8%;
-    margin-left: 15%;
-    margin-bottom: 10%;
-}
-.market .image img{
-    zoom: 1.08;
-    width: 500px;
-    height: 400px;
+.logo img{
+    width: 30%;
+    height: 175px;
 }
 
-.restaurant .content span i,
-.market .content span i{
-    margin-left: 2%;
+.welcome-nav{
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+}
+
+.welcome-nav__section{
+    margin: 1% 5%;
+    padding: 3%;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 15px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.welcome-nav__section .image{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+.welcome-nav__section .image img{
+    width: 300px;
+    height: 300px ;
+}
+.welcome-nav__section .content h2{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5%;
+}
+.welcome-nav__section .content a{
+    padding: 5px 10px;
+    height: 60px !important;
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 500;
+    color: #FF1D35;
+    border: 2px solid #FF1D35;
+    border-radius: 10px;
+    transition: all .4s ease-in-out;
+}
+.welcome-nav__section .content a:hover{
+    color: #FFF;
+    background: #FF1D35;
 }
 </style>

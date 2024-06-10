@@ -3,21 +3,22 @@
         <div v-if="isOpen" class="open-menu" :class="{ 'fadeOutRight': fadeOut }" @animationend="handleAnimationEnd">
             <span @click="closeMenu"><i class="fa-solid fa-xmark"></i></span>
             <ul>
-                <li><a href="#" @click="closeMenu">Restaurant</a></li>
-                <li><a href="#" @click="closeMenu">Market</a></li>
+                <li><router-link to="/en/restaurant" @click="closeMenu">Restaurant</router-link></li>
+                <li><router-link to="/en/supermarket" @click="closeMenu">Market</router-link></li>
             </ul>
         </div>
         <nav>
             <div class="nav__logo">
-                <img src="../assets/logo/logosiyah.svg" alt="Yummykitchen Logo">
+                <router-link to="/">
+                    <img src="../assets/logo/logosiyah.svg" alt="Yummykitchen Logo">
+                </router-link>
             </div>
             <div class="nav__links">
-                <span><i class="fa-solid fa-user"></i></span>
+                <router-link to="/en/user"><i class="fa-solid fa-user"></i></router-link>
                 <span><i class="fa-solid fa-cart-shopping"></i></span>
                 <p @click="toggleMenu"><i class="fa-solid fa-bars"></i></p>
             </div>
         </nav>
-
     </div>
 </template>
 
