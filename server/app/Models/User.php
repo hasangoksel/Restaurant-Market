@@ -55,7 +55,7 @@ class User extends Authenticatable
 
     public function addresses(): BelongsToMany
     {
-        return $this->belongsToMany(Address::class, 'user_addresses', 'user_id', 'address_id')->using(UserAddress::class);
+        return $this->belongsToMany(Address::class, 'user_addresses', 'user_id', 'address_id');
     }
 
     public function carts()
