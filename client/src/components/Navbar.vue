@@ -3,8 +3,10 @@
         <div v-if="isOpen" class="open-menu" :class="{ 'fadeOutRight': fadeOut }" @animationend="handleAnimationEnd">
             <span @click="closeMenu"><i class="fa-solid fa-xmark"></i></span>
             <ul>
-                <li><router-link to="/en/restaurant" @click="closeMenu">Restaurant</router-link></li>
-                <li><router-link to="/en/supermarket" @click="closeMenu">Market</router-link></li>
+                <li><router-link to="/en/user-information" @click="closeMenu"><i class="fa-solid fa-user"></i> My Information</router-link></li>
+                <li><router-link to="/en/restaurant" @click="closeMenu"><i class="fa-solid fa-utensils"></i> Restaurant</router-link></li>
+                <li><router-link to="/en/supermarket" @click="closeMenu"><i class="fa-solid fa-store"></i> Market</router-link></li>
+                <li style="margin-top:50%"><router-link to="/en/user" @click="closeMenu"><i class="fa-solid fa-right-from-bracket" style="margin-right: 5%;"></i> Logout</router-link></li>
             </ul>
         </div>
         <nav>
@@ -123,8 +125,11 @@ export default {
 
 .open-menu ul li a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.12rem;
     color: #000;
+}
+.open-menu ul li a i{
+    margin-right: 10px;
 }
 
 nav {

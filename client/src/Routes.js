@@ -4,14 +4,16 @@ import Restaurant from "./layouts/Restaurant.vue";
 import Market from "./layouts/Market.vue";
 import LoReUser from "./layouts/LoReUser.vue";
 import Cart from "./layouts/Cart.vue";
+import User from "./layouts/User.vue";
 const Router = createRouter({
     history: createWebHistory(),
     routes:[
-        { path: '/',               component: Welcome },
-        { path: '/en/restaurant',  component: Restaurant },
-        { path: '/en/supermarket', component: Market },
-        { path: '/en/user',        component: LoReUser },
-        { path: '/en/cart',        component: Cart}
+        { path: '/',                     component: Welcome },
+        { path: '/en/restaurant',        component: Restaurant },
+        { path: '/en/supermarket',       component: Market },
+        { path: '/en/user',              component: LoReUser },
+        { path: '/en/cart',              component: Cart},
+        { path: '/en/user-information',  component: User}
     ]
 });
 
