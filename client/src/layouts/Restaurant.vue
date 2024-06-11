@@ -30,7 +30,7 @@
                 </div>
                 <div class="products__item__basket">
                     <span> € {{ item.price }}</span>
-                    <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Add to Basket</span>
+                    <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</span>
                 </div>
             </div>
         </div>

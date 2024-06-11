@@ -72,7 +72,7 @@
 .welcome-nav__section .image{
     margin-top: 5%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center ;
 }
 .welcome-nav__section .image img{

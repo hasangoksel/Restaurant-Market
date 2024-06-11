@@ -15,7 +15,7 @@
             </div>
             <div class="nav__links">
                 <router-link to="/en/user"><i class="fa-solid fa-user"></i></router-link>
-                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <router-link to="/en/cart"><i class="fa-solid fa-cart-shopping"></i></router-link>
                 <p @click="toggleMenu"><i class="fa-solid fa-bars"></i></p>
             </div>
         </nav>
@@ -153,13 +153,13 @@ nav {
     align-items: center;
 }
 
-.nav__links span i {
-    cursor: pointer;
+.nav__links a i {
     color: #000;
+    text-decoration: none;
     transition: color .3s ease-in-out;
 }
 
-.nav__links span i:hover {
+.nav__links a i:hover {
     color: #FF1D35;
 }
 

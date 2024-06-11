@@ -34,7 +34,7 @@
                             </div>
                             <span> € {{ item.price }}</span>
                         </div>
-                        <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Add to Basket</span>
+                        <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</span>
                     </div>
                 </div>
             </div>

@@ -60,7 +60,6 @@
                     </div>
                 </form>
             </div>
-            
         </div>
         <yummy-footer></yummy-footer>
     </div>
@@ -108,10 +107,14 @@ import Navbar from '../components/Navbar.vue'
 <style scoped>
     .container{
         width: 100%;
-        min-height: 90vh;
+        padding: 0%;
+        min-height: 80vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url('../assets/back.svg') ;
+        background-size: cover;
+        background-position: 70%;
     }
     .loginForm{
         padding: 3%;
