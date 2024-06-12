@@ -17,6 +17,27 @@ class AddressController extends Controller
         $district = $request->input('district');
         $detail = $request->input('detail');
 
+        if(empty($title))
+        {
+            return response()->json(['error'=>'Title field cannot be left blank']);
+        }
+        if(empty($country))
+        {
+            return response()->json(['error'=>'Country field cannot be left blank']);
+        }
+        if(empty($city))
+        {
+            return response()->json(['error'=>'City field cannot be left blank']);
+        }
+        if(empty($district))
+        {
+            return response()->json(['error'=>'District field cannot be left blank']);
+        }
+        if(empty($detail))
+        {
+            return response()->json(['error'=>'Detail field cannot be left blank']);
+        }
+
         $user = User::find($user_id);
         $address = new Address();
         $address->title = $title;
@@ -30,7 +51,7 @@ class AddressController extends Controller
         
 
         return response()->json([
-            'success'   => 'Başarılı'
+            'success'   => 'Address Saved Successfully!',201
         ]);
     }
 
@@ -60,7 +81,7 @@ class AddressController extends Controller
 
         $address->delete();
 
-        return response()->json(['success' => 'Adres kullanıcıdan kaldırıldı ve silindi']);
+        return response()->json(['success' => 'Address deleted successfully'],200);
     }
 
 

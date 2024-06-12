@@ -9,6 +9,8 @@ class Campaign extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'campaign_id';
+
     protected $fillable = [
         'campaign'
     ];

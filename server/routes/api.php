@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -53,4 +55,18 @@ Route::post('logout',       [UserController::class, 'logout']);
 Route::post('addresses/{user_id}',                   [AddressController::class,'addAddressToUser']);
 Route::get('users/{userId}/addresses',               [AddressController::class,'getUserAddresses']);
 Route::put('users/{userId}/addresses/{addressId}',   [AddressController::class,'updateAddressForUser']);
-Route::delete('users/{user_id}/addresses/{address_id}',[AddressController::class,'removeAddressFromUser']);
+Route::delete('users/{user_id}/addresses/{address_id}', [AddressController::class,'removeAddressFromUser']);
+
+
+
+//Campaign CRUD işlemleri
+Route::get('campaigns',                     [CampaignController::class,'index']);
+Route::post('campaigns',                    [CampaignController::class,'store']);
+Route::get('campaigns/{campaign_id}',       [CampaignController::class,'show']);
+Route::put('campaigns/{campaign_id}',       [CampaignController::class,'update']);
+Route::delete('campaigns/{campaign_id}',    [CampaignController::class,'destroy']);
+
+
+
+//Category Show İşlemi
+Route::get('categories/{type_id}',[CategoryController::class,'show']);

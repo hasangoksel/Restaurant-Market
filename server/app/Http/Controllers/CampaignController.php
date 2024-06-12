@@ -12,7 +12,11 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
+        $campaign = Campaign::all();
+        if(!$campaign){
+            return response()->json(['error'=>'No campaigns have been created yet!'], 404);
+        }
+        return response()->json($campaign);
     }
 
     /**
@@ -28,15 +32,32 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campaign = $request->input('campaign');
+
+        if(empty($campaign))
+        {
+            return response()->json(['error' => 'Campaign field cannot be left blank']);
+        }
+
+        $value = new Campaign();
+        $value ->campaign = $campaign;
+        $value->save();
+
+        return response()->json([
+            'success'   => 'Campaign Saved Successfully!',201
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Campaign $campaign)
+    public function show($campaign_id)
     {
-        //
+        $campaign = Campaign::find($campaign_id);
+        if(!$campaign){
+            return response()->json(['error'=>'Campaign Not Found!',404]);
+        }
+        return response()->json($campaign);
     }
 
     /**
@@ -50,16 +71,35 @@ class CampaignController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Campaign $campaign)
+    public function update(Request $request, $campaign_id)
     {
-        //
+        $campaign = Campaign::find($campaign_id);
+        if (!$campaign) {
+            return response()->json(['error' => 'Campaign not found'], 404);
+        }
+
+        $newCampaign = $request->input('campaign');
+        if (empty($newCampaign)) {
+            return response()->json(['error' => 'Campaign field cannot be left blank'], 400);
+        }
+
+        $campaign->campaign = $newCampaign;
+        $campaign->save();
+
+        return response()->json(['success' => 'Campaign Updated Successfully!'], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Campaign $campaign)
+    public function destroy($campaign_id)
     {
-        //
+        $campaign = Campaign::find($campaign_id);
+        if (!$campaign) {
+            return response()->json(['error' => 'Campaign not found'], 404);
+        }
+
+        $campaign->delete();
+        return response()->json(['success' => 'Campaign Deleted Successfully!'], 200);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -34,9 +35,14 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($type_id)
     {
-        //
+        $type = Type::find($type_id);
+        if (!$type) {
+            return response()->json(['error' => 'Type not found'], 404);
+        }
+        $categories = $type->categories;
+        return response()->json($categories);
     }
 
     /**
