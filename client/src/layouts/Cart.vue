@@ -24,7 +24,31 @@
                 <div class="basket-preview__content">
                     <h3>Total Price</h3>
                     <p>{{ totalPrice }} €</p>
-                    <hr style="margin-top: 5%;">
+                    <hr style="margin-top: 5%; margin-bottom: 5%;">
+                    <div class="order">
+                        <div class="order__title">
+                            <h4>Payment Methods <br> (At the door)</h4>
+                        </div>
+                        <div class="order__item">
+                            <input type="radio" id="cash" name="payment" value="HTML">
+                            <label for="cash">Cash</label> <br>
+                            <input type="radio" id="creditCard" name="payment" value="HTML">
+                            <label for="creditCard">Credit Card</label>
+                        </div>
+                        <hr style="margin-top: 5%; margin-bottom: 5%; width: 100%;">
+                        <div class="order__title">
+                            <h4>Address</h4>
+                        </div>
+                        <div class="order__item" v-for="item in address" :key="item.id">
+                            <input type="radio" :id="item.title" value="HTML">
+                            <label :for="item.title">
+                                <label>{{ item.title }}</label>
+                                <p>{{ item.district }} / {{ item.city }} / {{ item.country }}</p>
+                                <p>{{ item.detail }}</p>
+                            </label>
+                        </div>
+                        <hr style="margin-top: 5%; margin-bottom: 5%; width: 100%;">
+                    </div>
                     <div class="button-basket">
                         <span>Give Order</span>
                     </div>
@@ -47,6 +71,14 @@ export default {
     },
     data() {
         return {
+            address:[{
+                id: 1,
+                title: 'Home',
+                country: 'Turkey',
+                city: 'Denizli',
+                district: 'Merkezefendi',
+                detail: 'Altıntop Mah. 1591 Sk. No:27 Daire:4 Global İş Merkezi',
+            }],
             basket: [{
                     id: 0,
                     image: "product-1.jpeg",
@@ -100,7 +132,7 @@ export default {
 }
 
 .basket-content {
-    width: 75%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -181,7 +213,7 @@ export default {
 }
 
 .basket-preview {
-    width: 20%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -229,4 +261,31 @@ export default {
     color: #FFF;
     background: #FF1D35;
 }
+
+.order{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.order__item{
+    margin-top: 3%;
+}
+.order__title h4{
+    font-weight: 600;
+    font-size: 1rem;
+    opacity: .9;
+    margin: 3% 0;
+}
+
+.order__item input{
+    margin-right: 10px;
+}
+
+.order__item p{
+    text-align: left;
+    font-weight: 400;
+    margin: 1%;
+}
+
 </style>
