@@ -15,6 +15,8 @@ return new class extends Migration
             $table->increments('product_id');
             $table->unsignedTinyInteger('category_id');
             $table->unsignedTinyInteger('type_id');
+            $table->unsignedTinyInteger('language_id');
+            $table->string('product_code',10);
             $table->string('name');
             $table->string('detail');
             $table->decimal('price',10,2);

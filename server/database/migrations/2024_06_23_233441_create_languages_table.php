@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaigns', function (Blueprint $table) {
-            $table->increments('campaign_id');
-            $table->string('campaign'); //image olacak
-            $table->string('title'); 
-            $table->string('detail'); 
+        Schema::create('languages', function (Blueprint $table) {
+            $table->tinyIncrements('language_id');
+            $table->string('language',15);
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('languages');
     }
 };

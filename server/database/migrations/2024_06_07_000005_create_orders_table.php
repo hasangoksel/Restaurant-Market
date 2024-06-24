@@ -15,8 +15,11 @@ return new class extends Migration
             $table->increments('order_id');
             $table->string('sCartNumber',10);
             $table->unsignedInteger('user_address_id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedTinyInteger('branch_id');
+            $table->string('estimatedDeliveryTime',30);
             $table->unsignedTinyInteger('state_id');
-            $table->timestamps();
+            $table->timestamps();   
 
             $table->foreign('user_address_id')->references('user_address_id')->on('user_addresses');
             $table->foreign('state_id')->references('state_id')->on('states');

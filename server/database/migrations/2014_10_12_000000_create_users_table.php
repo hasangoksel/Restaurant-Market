@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone',14);
             $table->boolean('privacyConfirm');
             $table->boolean('notification');
+            $table->string('sCartNumber',10);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaigns', function (Blueprint $table) {
-            $table->increments('campaign_id');
-            $table->string('campaign'); //image olacak
-            $table->string('title'); 
-            $table->string('detail'); 
+        Schema::create('ingredients', function (Blueprint $table) {
+            $table->increments('ingredient_id');
+            $table->string('name',50);
+            $table->decimal('price',10,2);
+            $table->unsignedTinyInteger('language_id');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('ingredients');
     }
 };

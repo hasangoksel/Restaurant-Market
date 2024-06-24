@@ -9,6 +9,8 @@ class State extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'state_id';
+
     protected $fillable = [
         'name'
     ];

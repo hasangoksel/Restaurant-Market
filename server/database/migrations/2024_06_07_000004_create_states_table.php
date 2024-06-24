@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('states', function (Blueprint $table) {
             $table->tinyInteger('state_id')->unsigned()->autoIncrement();
             $table->string('name',30);
+            $table->unsignedTinyInteger('language_id');
             $table->timestamps();
         });
     }

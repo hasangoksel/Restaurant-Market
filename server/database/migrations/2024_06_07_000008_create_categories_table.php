@@ -15,6 +15,7 @@ return new class extends Migration
             $table->tinyIncrements('category_id');
             $table->unsignedTinyInteger('type_id');
             $table->string('category',30);
+            $table->unsignedTinyInteger('language_id');
             $table->timestamps();
 
             $table->foreign('type_id')->references('type_id')->on('types');

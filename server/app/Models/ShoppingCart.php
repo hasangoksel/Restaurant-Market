@@ -9,6 +9,8 @@ class ShoppingCart extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'shopping_cart_id';
+
     protected $fillable = [
         'sCartNumber',
         'detail',

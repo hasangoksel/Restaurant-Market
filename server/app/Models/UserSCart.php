@@ -9,6 +9,8 @@ class UserSCart extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'user_s_cart_id';
+
     protected $fillable = [
         'user_id',
         'sCartNumber'
