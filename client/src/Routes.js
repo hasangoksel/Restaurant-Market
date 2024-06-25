@@ -25,7 +25,8 @@ import Messages               from "./layouts/admin/Messages.vue";
 import Campaign               from "./layouts/admin/Campaign.vue";
 import NewCampaign            from "./layouts/admin/CampaignNew.vue";
 import Orders                 from "./layouts/admin/Orders.vue";
-import OrderDetails from "./layouts/admin/OrderDetails.vue";
+import OrderDetails           from "./layouts/admin/OrderDetails.vue";
+import Chat                   from "./layouts/admin/Chat.vue";
 
 
 const Router = createRouter({
@@ -60,7 +61,8 @@ const Router = createRouter({
         { path: '/admin/campaign'                 , component: Campaign },
         { path: '/admin/new-campaign'             , component: NewCampaign },
         { path: '/admin/orders'                   , component: Orders },
-        { path: '/admin/order-details'            , component: OrderDetails }
+        { path: '/admin/order-details'            , component: OrderDetails },
+        { path: '/admin/chat'                     , component: Chat }
     ]
 });
 

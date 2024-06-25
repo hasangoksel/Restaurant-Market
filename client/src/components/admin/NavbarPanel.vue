@@ -22,8 +22,12 @@
                     Market Products
                 </router-link>
                 <router-link to="/admin/messages" class="navbar-links__item">
+                    <i class="fa-solid fa-user"></i>
+                    User Message
+                </router-link>     
+                <router-link to="/admin/chat" class="navbar-links__item">
                     <i class="fa-solid fa-message"></i>
-                    Message
+                    Chat
                 </router-link>
                 <router-link to="/admin/login" class="navbar-links__item" style="margin-top: 40%;">
                     <i class="fa-solid fa-right-from-bracket"></i>
