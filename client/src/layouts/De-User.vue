@@ -9,41 +9,41 @@
                 </div>
                 <div class="user-information__nav-links">
                     <span @click="setActiveSection('myInformation')">
-                        <i class="fa-solid fa-user"></i> My Information
+                        <i class="fa-solid fa-user"></i> Meine Informationen
                     </span>
                     <span @click="setActiveSection('myAddresses')">
-                        <i class="fa-solid fa-location-dot"></i> My Addresses
+                        <i class="fa-solid fa-location-dot"></i> Meine Adressen
                     </span>
                     <span @click="setActiveSection('newAddress')">
-                        <i class="fa-solid fa-plus"></i> New Address
+                        <i class="fa-solid fa-plus"></i> Neue Adresse
                     </span>
-                    <p class="delete">Delete My Account</p>
+                    <p class="delete">Mein Konto löschen</p>
                 </div>
             </div>
             <div class="user-information__content">
                 <form class="my-information" v-if="activeSection === 'myInformation'">
                     <div class="my-information__item">
-                        <label>E-mail</label>
+                        <label>E-Mail</label>
                         <span>{{ user.mail }}</span>
                     </div>
                     <div class="address-card__edit__item">
-                        <label for="phone">Telephone</label>
+                        <label for="phone">Telefon</label>
                         <input type="text" id="phone" v-model="user.phone" />
                     </div>
                     <div class="address-card__edit__item">
-                        <label for="password">Password</label>
+                        <label for="password">Passwort</label>
                         <input type="password" id="password" v-model="user.password" />
                     </div>
                     <div class="address-card__edit__item">
-                        <label for="newPassword">New Password</label>
+                        <label for="newPassword">Neues Passwort</label>
                         <input type="password" id="newPassword" v-model="newPassword" />
                     </div>
                     <div class="address-card__edit__item">
-                        <label for="rePassword">Re-Password</label>
+                        <label for="rePassword">Passwort wiederholen</label>
                         <input type="password" id="rePassword" v-model="rePassword" />
                     </div>
                     <div class="address-card__edit__item-buttons">
-                        <span><i class="fa-solid fa-floppy-disk"></i> Save</span>
+                        <span><i class="fa-solid fa-floppy-disk"></i> Speichern</span>
                     </div>
                 </form>
                 <div class="my-addresses" v-if="activeSection === 'myAddresses'">
@@ -61,54 +61,54 @@
                         <hr style="width: 100%; margin-top: 3%;" />
                         <form class="address-card__edit" v-if="item.isEdit">
                             <div class="address-card__edit__item">
-                                <label for="title">Title</label>
+                                <label for="title">Titel</label>
                                 <input type="text" id="title" v-model="item.title" />
                             </div>
                             <div class="address-card__edit__item">
-                                <label for="country">Country</label>
+                                <label for="country">Land</label>
                                 <input type="text" id="country" v-model="item.country" />
                             </div>
                             <div class="address-card__edit__item">
-                                <label for="city">City</label>
+                                <label for="city">Stadt</label>
                                 <input type="text" id="city" v-model="item.city" />
                             </div>
                             <div class="address-card__edit__item">
-                                <label for="district">District</label>
+                                <label for="district">Bezirk</label>
                                 <input type="text" id="district" v-model="item.district" />
                             </div>
                             <div class="address-card__edit__item">
-                                <label for="detail">Address</label>
+                                <label for="detail">Adresse</label>
                                 <input type="text" id="detail" v-model="item.detail" />
                             </div>
                             <div class="address-card__edit__item-buttons">
-                                <span><i class="fa-solid fa-floppy-disk"></i> Save</span>
+                                <span><i class="fa-solid fa-floppy-disk"></i> Speichern</span>
                             </div>
                         </form>
                     </div>
                 </div>
                 <form class="new-address" v-if="activeSection === 'newAddress'">
                     <div class="address-card__edit__item">
-                        <label for="title">Title</label>
+                        <label for="title">Titel</label>
                         <input type="text" id="title" v-model="newAddress.title" />
                     </div>
                     <div class="address-card__edit__item">
-                        <label for="country">Country</label>
+                        <label for="country">Land</label>
                         <input type="text" id="country" v-model="newAddress.country" />
                     </div>
                     <div class="address-card__edit__item">
-                        <label for="city">City</label>
+                        <label for="city">Stadt</label>
                         <input type="text" id="city" v-model="newAddress.city" />
                     </div>
                     <div class="address-card__edit__item">
-                        <label for="district">District</label>
+                        <label for="district">Bezirk</label>
                         <input type="text" id="district" v-model="newAddress.district" />
                     </div>
                     <div class="address-card__edit__item">
-                        <label for="detail">Address</label>
+                        <label for="detail">Adresse</label>
                         <input type="text" id="detail" v-model="newAddress.detail" />
                     </div>
                     <div class="address-card__edit__item-buttons">
-                        <span><i class="fa-solid fa-floppy-disk"></i> Save</span>
+                        <span><i class="fa-solid fa-floppy-disk"></i> Speichern</span>
                     </div>
                 </form>
             </div>
@@ -141,8 +141,8 @@ export default {
                     address: [
                         {
                             id: 1,
-                            title: 'Office',
-                            country: 'Turkey',
+                            title: 'Büro',
+                            country: 'Türkei',
                             city: 'Denizli',
                             district: 'Merkezefendi',
                             detail: 'Altıntop Mah. 1591 Sk. No:27 Daire:4 Global İş Merkezi',

@@ -3,7 +3,7 @@
         <yummy-nav></yummy-nav>
         <div class="basket-container">
             <div class="basket-content">
-                <h2>Products in Cart</h2>
+                <h2>Produkte im Warenkorb</h2>
                 <div class="basket-content__item" v-for="item in basket" :key="item.id">
                     <img :src="getImageUrl(item.image)" :alt="item.name">
                     <div class="basket-content__item-title">
@@ -22,22 +22,22 @@
             </div>
             <div class="basket-preview">
                 <div class="basket-preview__content">
-                    <h3>Total Price</h3>
+                    <h3>Gesamtpreis</h3>
                     <p>{{ totalPrice }} €</p>
                     <hr style="margin-top: 5%; margin-bottom: 5%;">
                     <div class="order">
                         <div class="order__title">
-                            <h4>Payment Methods <br> (At the door)</h4>
+                            <h4>Zahlungsmethoden <br> (An der Tür)</h4>
                         </div>
                         <div class="order__item">
                             <input type="radio" id="cash" name="payment" value="payment">
-                            <label for="cash">Cash</label> <br>
+                            <label for="cash">Bargeld</label> <br>
                             <input type="radio" id="creditCard" name="payment" value="payment">
-                            <label for="creditCard">Credit Card</label>
+                            <label for="creditCard">Kreditkarte</label>
                         </div>
                         <hr style="margin-top: 5%; margin-bottom: 5%; width: 100%;">
                         <div class="order__title">
-                            <h4>Address</h4>
+                            <h4>Adresse</h4>
                         </div>
                         <div class="order__item" v-for="item in address" :key="item.id">
                             <input type="radio" :id="item.title" value="address">
@@ -50,7 +50,7 @@
                         <hr style="margin-top: 5%; margin-bottom: 5%; width: 100%;">
                     </div>
                     <div class="button-basket">
-                        <span>Give Order</span>
+                        <span>Bestellung aufgeben</span>
                     </div>
                 </div>
     
@@ -73,8 +73,8 @@ export default {
         return {
             address:[{
                 id: 1,
-                title: 'Home',
-                country: 'Turkey',
+                title: 'Zuhause',
+                country: 'Türkei',
                 city: 'Denizli',
                 district: 'Merkezefendi',
                 detail: 'Altıntop Mah. 1591 Sk. No:27 Daire:4 Global İş Merkezi',
@@ -82,7 +82,7 @@ export default {
             basket: [{
                     id: 0,
                     image: "product-1.jpeg",
-                    name: "Product",
+                    name: "Produkt",
                     detail: "Lorem ipsum dolor sit amet consectetur adipisicing.",
                     count: 1,
                     price: 10,
@@ -90,7 +90,7 @@ export default {
                 {
                     id: 1,
                     image: "product-2.jpg",
-                    name: "Product",
+                    name: "Produkt",
                     detail: "Lorem ipsum dolor sit amet consectetur adipisicing.",
                     count: 1,
                     price: 18.25,
@@ -115,7 +115,7 @@ export default {
             for (let item of this.basket) {
                 totalPrice += item.price * item.count;
             }
-            return totalPrice.toFixed(2); // toplam fiyatı iki ondalık basamağa yuvarla
+            return totalPrice.toFixed(2); // Gesamtpreis auf zwei Dezimalstellen runden
         }
     }
 }
