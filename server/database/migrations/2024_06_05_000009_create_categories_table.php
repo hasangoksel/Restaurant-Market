@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingredients', function (Blueprint $table) {
-            $table->increments('ingredient_id');
-            $table->string('name',50);
-            $table->decimal('price',10,2);
+        Schema::create('categories', function (Blueprint $table) {
+            $table->tinyIncrements('category_id');
+            $table->unsignedTinyInteger('type_id');
+            $table->string('category',30);
             $table->unsignedTinyInteger('language_id');
             $table->timestamps();
+
+            $table->foreign('type_id')->references('type_id')->on('types');
+            $table->foreign('language_id')->references('language_id')->on('languages');
         });
     }
 
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingredients');
+        Schema::dropIfExists('categories');
     }
 };

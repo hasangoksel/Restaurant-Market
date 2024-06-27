@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 
 class Product extends Model
 {
@@ -17,7 +19,8 @@ class Product extends Model
         'price',
         'discountRate',
         'image',
-        'isFavourite'
+        'isFavourite',
+        'language_id'
     ];
 
     public function shopCarts()
@@ -33,5 +36,15 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsTo(Category::class,'category_id');
+    }
+
+    public function languages()
+    {
+        return $this->belongsTo(Language::class,'language_id');
+    }
+
+    public function product_ingredients(): BelongsToMany
+    {
+        return $this->belongsToMany(Ingredient::class, 'product_ingredients', 'product_id', 'ingredient_id');
     }
 }

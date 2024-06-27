@@ -102,4 +102,27 @@ class CampaignController extends Controller
         $campaign->delete();
         return response()->json(['success' => 'Campaign Deleted Successfully!'], 200);
     }
+
+    //Kampanya fotoğraflarını kaydeder
+    public function uploadCampaignImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $path = $image->storeAs('images', 'campaign_' . $image->hashName(), 'public'); // dosyayı 'public/images' dizinine campaign ön ekiyle kaydeder.
+            
+            $imageName = 'campaign_' . $image->hashName(); // Bu yolda saklanan dosya ismi.
+
+            return response()->json([
+                'success' => 'Resim Başarıyla Yüklendi!',
+                'image_path' => $path,
+                'image_name' => $imageName
+            ], 200);
+        }
+        return response()->json(['error' => 'Resim Yüklenemedi'], 400); 
+    }
+
 }

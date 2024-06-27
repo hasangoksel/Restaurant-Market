@@ -12,7 +12,12 @@ class Order extends Model
     protected $primaryKey = 'order_id';
 
     protected $fillable = [
-        'sCartNumber'
+        'sCartNumber',
+        'user_adress_id',
+        'user_id',
+        'branch_id',
+        'state_id',
+        'estimatedDeliveryTime'
     ];
 
     public  function userAdresses()
@@ -23,5 +28,15 @@ class Order extends Model
     public  function states()
     {
         return $this->belongsTo(State::class,'state_id');
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function branches()
+    {
+        return $this->belongsTo(Branch::class,'branch_id');
     }
 }

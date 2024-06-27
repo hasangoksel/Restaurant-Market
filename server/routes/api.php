@@ -5,6 +5,8 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserMessageController;
+use App\Models\UserMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 //Product CRUD işlemleri ID'ye göre
 Route::get('products',           [ProductController::class,'index']);
+Route::get('products',           [ProductController::class,'indexByLanguage']);
 Route::post('products',          [ProductController::class,'store']);
 Route::put('products/{id}',      [ProductController::class,'update']);
 Route::delete('products/{id}',   [ProductController::class,'destroy']);
@@ -70,3 +73,7 @@ Route::delete('campaigns/{campaign_id}',    [CampaignController::class,'destroy'
 
 //Category Show İşlemi
 Route::get('categories/{type_id}',[CategoryController::class,'show']);
+
+
+//UserMessage Store İşlemi
+Route::post('message',[UserMessageController::class, 'store']);

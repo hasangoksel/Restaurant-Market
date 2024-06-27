@@ -11,4 +11,9 @@ class BranchMessage extends Model
 
     protected $primaryKey = 'branch_message_id';
 
+    public function branches()
+    {
+        return $this->belongsTo(Branch::class,'branch_id');
+    }
+
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('category_id');
             $table->unsignedTinyInteger('type_id');
             $table->unsignedTinyInteger('language_id');
-            $table->string('product_code',10);
+            $table->string('product_code',10)->nullable();
             $table->string('name');
             $table->string('detail');
             $table->decimal('price',10,2);
@@ -27,6 +27,7 @@ return new class extends Migration
 
             $table->foreign('category_id')->references('category_id')->on('categories');
             $table->foreign('type_id')->references('type_id')->on('types');
+            $table->foreign('language_id')->references('language_id')->on('languages');
         });
     }
 

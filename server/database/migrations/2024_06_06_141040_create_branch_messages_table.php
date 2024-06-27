@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('states', function (Blueprint $table) {
-            $table->tinyInteger('state_id')->unsigned()->autoIncrement();
-            $table->string('name',30);
-            $table->unsignedTinyInteger('language_id');
+        Schema::create('branch_messages', function (Blueprint $table) {
+            $table->increments('branch_message_id');
+            $table->unsignedTinyInteger('branch_id');
+            $table->string('message');
+            $table->boolean('readReceipt');
             $table->timestamps();
+
+            $table->foreign('branch_id')->references('branch_id')->on('branches');
         });
     }
 
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('branch_messages');
     }
 };

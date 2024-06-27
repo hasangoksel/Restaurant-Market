@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('branch_states', function (Blueprint $table) {
-            $table->tinyInteger('branch_state_id')->unsigned()->autoIncrement();
-            $table->string('name',30);
+        Schema::create('ingredients', function (Blueprint $table) {
+            $table->increments('ingredient_id');
+            $table->string('name',50);
+            $table->decimal('price',10,2);
             $table->unsignedTinyInteger('language_id');
             $table->timestamps();
+            
+            $table->foreign('language_id')->references('language_id')->on('languages');
         });
     }
 
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('branch_states');
+        Schema::dropIfExists('ingredients');
     }
 };

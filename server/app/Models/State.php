@@ -19,4 +19,9 @@ class State extends Model
     {
         return $this->hasMany(Order::class,'state_id');
     }
+
+    public function languages()
+    {
+        return $this->belongsTo(Language::class,'language_id');
+    }
 }

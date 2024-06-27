@@ -28,7 +28,26 @@ class UserMessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subject      = $request->input('subject');
+        $email        = $request->input('email');
+        $message      = $request->input('message');
+
+        //Validation işlemleri.
+       if (empty($subject)) {
+            return response()->json(['error' => 'Konu zorunludur!'], 400);
+        }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return response()->json(['error' => 'Geçerli bir e-posta adresi giriniz!'], 400);
+        }elseif (empty($message)) {
+            return response()->json(['error' => 'Bu alan boş bırakılamaz!'], 400);
+        } else {
+            $newMessage = new UserMessage();
+            $newMessage -> subject     = $subject;
+            $newMessage -> mail       = $email;
+            $newMessage -> message     = $message;
+            $newMessage -> save();
+
+            return response()->json(['success' => 'Mesaj başarı ile gönderildi!', 'newMessage' => $newMessage], 200);
+        }
     }
 
     /**

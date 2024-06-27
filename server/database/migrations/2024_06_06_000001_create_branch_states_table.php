@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_ingredients', function (Blueprint $table) {
-            $table->increments('product_ingredient_id');
-            $table->unsignedInteger('product_id');
-            $table->unsignedInteger('ingredient_id');
+        Schema::create('branch_states', function (Blueprint $table) {
+            $table->tinyInteger('branch_state_id')->unsigned()->autoIncrement();
+            $table->string('name',30);
+            $table->unsignedTinyInteger('language_id');
             $table->timestamps();
+
+            $table->foreign('language_id')->references('language_id')->on('languages');
         });
     }
 
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_ingredients');
+        Schema::dropIfExists('branch_states');
     }
 };

@@ -30,6 +30,30 @@ class ProductController extends Controller
         $products = $query->get();
         return response()->json($products);
     }
+
+    public function indexByLanguage(Request $request)
+    {
+        $typeId = $request->query('type_id');
+        $categoryId = $request->query('category_id');
+        $languageId = $request->query('language_id');
+
+        $query = Product::query();
+
+        if ($typeId) {
+            $query->where('type_id', $typeId);
+        }
+
+        if ($categoryId) {
+            $query->where('category_id', $categoryId);
+        }
+
+        if ($languageId) {
+            $query->where('language_id', $languageId);
+        }
+
+        $products = $query->get();
+        return response()->json($products);
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -117,18 +141,22 @@ class ProductController extends Controller
     //Ürün fotoğraflarını kaydeder
     public function upload(Request $request)
     {
-        $request -> validate([
-            'image'=>'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
         ]);
 
-        if($request->file('image')){
+        if ($request->file('image')) {
             $image = $request->file('image');
-            $path = $image->store('images','public'); //dosyayı 'public/images' dizinine kaydediyor.
+            $path = $image->store('images', 'public'); // dosyayı 'public/images' dizinine kaydeder.
+            
+            $imageName = $image->hashName(); // Bu yolda saklanan dosya ismi.
 
-            $imageName = $image->hashName(); //Bu yolda saklanan dosya ismi.
-
-            return response()->json(['success'=>'Resim Başarıyla Yüklendi!','image_path'=> $path],200);
+            return response()->json([
+                'success' => 'Resim Başarıyla Yüklendi!',
+                'image_path' => $path,
+                'image_name' => $imageName
+            ], 200);
         }
-        return response()->json(['error'=>'Resim Yüklenemedi',400]);
+        return response()->json(['error' => 'Resim Yüklenemedi'], 400); 
     }
 }

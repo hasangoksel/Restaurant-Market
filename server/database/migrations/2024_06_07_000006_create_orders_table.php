@@ -23,6 +23,8 @@ return new class extends Migration
 
             $table->foreign('user_address_id')->references('user_address_id')->on('user_addresses');
             $table->foreign('state_id')->references('state_id')->on('states');
+            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('branch_id')->references('branch_id')->on('branches');
         });
     }
 
