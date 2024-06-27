@@ -10,9 +10,18 @@ class IngredientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $languageId = $request->query('language_id');
+
+        $query = Ingredient::query();
+
+        if ($languageId) {
+            $query->where('language_id', $languageId);
+        }
+
+        $ingredients = $query->get();
+        return response()->json($ingredients);
     }
 
     /**

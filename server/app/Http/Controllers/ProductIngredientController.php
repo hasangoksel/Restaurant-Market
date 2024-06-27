@@ -10,9 +10,18 @@ class ProductIngredientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $productId = $request->query('product_id');
+
+        $query = productIngredient::query();
+
+        if ($productId) {
+            $query->where('product_id', $productId);
+        }
+
+        $ingredients = $query->get();
+        return response()->json($ingredients);
     }
 
     /**

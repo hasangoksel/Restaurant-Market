@@ -15,7 +15,6 @@ return new class extends Migration
             $table->increments('branch_message_id');
             $table->unsignedTinyInteger('branch_id');
             $table->string('message');
-            $table->boolean('readReceipt');
             $table->timestamps();
 
             $table->foreign('branch_id')->references('branch_id')->on('branches');

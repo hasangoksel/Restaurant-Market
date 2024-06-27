@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Address;
-use App\Models\UserSCart;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
@@ -29,7 +28,8 @@ class User extends Authenticatable
         'password',
         'phone',
         'privacyConfirm',
-        'notification'
+        'notification',
+        'sCartNumber'
     ];
 
     /**
@@ -56,11 +56,6 @@ class User extends Authenticatable
     public function addresses(): BelongsToMany
     {
         return $this->belongsToMany(Address::class, 'user_addresses', 'user_id', 'address_id');
-    }
-
-    public function carts()
-    {
-        return $this->hasMany(UserSCart::class,'user_id');
     }
 
     public function orders()

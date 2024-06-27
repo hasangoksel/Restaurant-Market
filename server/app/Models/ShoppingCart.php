@@ -12,10 +12,11 @@ class ShoppingCart extends Model
     protected $primaryKey = 'shopping_cart_id';
 
     protected $fillable = [
+        'product_id',
         'sCartNumber',
         'detail',
         'count',
-        'price'
+        'price',
     ];
 
     public function products()

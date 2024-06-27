@@ -49,6 +49,9 @@ class UserController extends Controller
             return response()->json(['error' => 'The notification must be in required'],422);
         }
 
+        //Random 7 haneli sayı
+        $scartNumber = str_pad(mt_rand(0, 9999999), 7, '0', STR_PAD_LEFT);
+
         $user = new User();
         $user->name = $validatedData['name'];
         $user->surname = $validatedData['surname'];
@@ -57,6 +60,7 @@ class UserController extends Controller
         $user->phone = $validatedData['phone'];
         $user->privacyConfirm = $validatedData['privacyConfirm'];
         $user->notification = $validatedData['notification'];
+        $user->SCartNumber = $scartNumber;
         $user->save();
 
         return response()->json($user, 201);

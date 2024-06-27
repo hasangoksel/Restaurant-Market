@@ -19,6 +19,8 @@ return new class extends Migration
             $table->unsignedTinyInteger('branch_id');
             $table->string('estimatedDeliveryTime',30);
             $table->unsignedTinyInteger('state_id');
+            $table->decimal('handling_fee',10,2);
+            $table->decimal('price',10,2);
             $table->timestamps();   
 
             $table->foreign('user_address_id')->references('user_address_id')->on('user_addresses');

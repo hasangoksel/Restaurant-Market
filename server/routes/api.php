@@ -3,7 +3,10 @@
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductIngredientController;
+use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserMessageController;
 use App\Models\UserMessage;
@@ -76,4 +79,16 @@ Route::get('categories/{type_id}',[CategoryController::class,'show']);
 
 
 //UserMessage Store İşlemi
-Route::post('message',[UserMessageController::class, 'store']);
+Route::post('message',            [UserMessageController::class, 'store']);
+
+
+//Ingredients Language Id'ye göre index işlemi
+Route::get('ingredients',         [IngredientController::class,'index']);
+
+
+//Product Id'ye göre Ingredients index işlemi
+Route::get('ingredientsProduct',  [ProductIngredientController::class,'index']);
+
+
+//Kullanıcı SCartNumber Shopping Cart a göre ekleme işlemi
+Route::post('shopping_cart', [ShoppingCartController::class, 'store']);
