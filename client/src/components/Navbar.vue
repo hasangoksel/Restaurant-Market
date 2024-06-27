@@ -1,14 +1,32 @@
 <template>
-    <div>
-        <div v-if="isOpen" class="open-menu" :class="{ 'fadeOutRight': fadeOut }" @animationend="handleAnimationEnd">
+    <div class="nav-container">
+        <div class="language">
+            <img src="../assets/eng-flag.svg" alt="England Flag" @click="changeLanguage('en')">
+            <img src="../assets/de-flag.svg" alt="Deutschland Flag" @click="changeLanguage('de')">
+        </div>
+
+        <!-- İngilizce açılır menü -->
+        <div v-if="isOpen && currentLanguage === 'en'" class="open-menu" :class="{ 'fadeOutRight': fadeOut }" @animationend="handleAnimationEnd">
             <span @click="closeMenu"><i class="fa-solid fa-xmark"></i></span>
             <ul>
-                <li><router-link to="/en/user-information" @click="closeMenu"><i class="fa-solid fa-user"></i> My Information</router-link></li>
-                <li><router-link to="/en/restaurant" @click="closeMenu"><i class="fa-solid fa-utensils"></i> Restaurant</router-link></li>
-                <li><router-link to="/en/supermarket" @click="closeMenu"><i class="fa-solid fa-store"></i> Market</router-link></li>
-                <li style="margin-top:50%"><router-link to="/en/user" @click="closeMenu"><i class="fa-solid fa-right-from-bracket" style="margin-right: 5%;"></i> Logout</router-link></li>
+                <li><router-link :to="`/${language}/user-information`" @click.native="closeMenu"><i class="fa-solid fa-user"></i> My Information</router-link></li>
+                <li><router-link :to="`/${language}/restaurant`" @click.native="closeMenu"><i class="fa-solid fa-utensils"></i> Restaurant</router-link></li>
+                <li><router-link :to="`/${language}/supermarket`" @click.native="closeMenu"><i class="fa-solid fa-store"></i> Market</router-link></li>
+                <li><router-link :to="`/${language}/user`" @click.native="logout"><i class="fa-solid fa-right-from-bracket" style="margin-right: 5%;"></i> Logout</router-link></li>
             </ul>
         </div>
+
+        <!-- Almanca açılır menü -->
+        <div v-if="isOpen && currentLanguage === 'de'" class="open-menu" :class="{ 'fadeOutRight': fadeOut }" @animationend="handleAnimationEnd">
+            <span @click="closeMenu"><i class="fa-solid fa-xmark"></i></span>
+            <ul>
+                <li><router-link :to="`/${language}/user-information`" @click.native="closeMenu"><i class="fa-solid fa-user"></i> Meine Informationen</router-link></li>
+                <li><router-link :to="`/${language}/restaurant`" @click.native="closeMenu"><i class="fa-solid fa-utensils"></i> Restaurant</router-link></li>
+                <li><router-link :to="`/${language}/supermarket`" @click.native="closeMenu"><i class="fa-solid fa-store"></i> Markt</router-link></li>
+                <li><router-link :to="`/${language}/user`" @click.native="logout"><i class="fa-solid fa-right-from-bracket" style="margin-right: 5%;"></i> Ausloggen</router-link></li>
+            </ul>
+        </div>
+
         <nav>
             <div class="nav__logo">
                 <router-link to="/">
@@ -16,8 +34,8 @@
                 </router-link>
             </div>
             <div class="nav__links">
-                <router-link to="/en/user"><i class="fa-solid fa-user"></i></router-link>
-                <router-link to="/en/cart"><i class="fa-solid fa-cart-shopping"></i></router-link>
+                <router-link :to="`/${currentLanguage}/user`"><i class="fa-solid fa-user"></i></router-link>
+                <router-link :to="`/${currentLanguage}/cart`"><i class="fa-solid fa-cart-shopping"></i></router-link>
                 <p @click="toggleMenu"><i class="fa-solid fa-bars"></i></p>
             </div>
         </nav>
@@ -30,20 +48,16 @@ export default {
         return {
             isOpen: false,
             fadeOut: false,
+            language: 'en', // Varsayılan dil
+            currentLanguage: '', // Şu anki dil
         };
     },
     methods: {
         toggleMenu() {
-            if (this.isOpen) {
-                this.fadeOut = true; // Menüyü kapatmak için fadeOut durumunu true yapın
-            } else {
-                this.isOpen = true; // Menüyü açmak için isOpen durumunu true yapın
-            }
+            this.isOpen = !this.isOpen;
         },
-
         closeMenu() {
             this.fadeOut = true;
-            this.isOpen = !this.isOpen;
         },
         handleAnimationEnd() {
             if (this.fadeOut) {
@@ -51,17 +65,62 @@ export default {
                 this.fadeOut = false;
             }
         },
+        changeLanguage(lang) {
+            this.currentLanguage = lang;
+            const currentPath = this.$route.path;
+            const newPath = currentPath.replace(/^\/[a-z]{2}/, `/${lang}`);
+            this.$router.push({ path: newPath });
+        },
+        logout() {
+            // Burada logout işlemleri yapılabilir
+            // Örneğin session temizleme, vb.
+            console.log('Logged out');
+        }
     },
+    watch: {
+        '$route'() {
+            // Route değiştiğinde menüyü kapatın
+            this.isOpen = false;
+            this.fadeOut = false;
+        }
+    },
+    mounted() {
+        // Başlangıçta route diline göre currentLanguage'i ayarla
+        const langRegex = /^\/([a-z]{2})\//;
+        const match = this.$route.path.match(langRegex);
+        if (match && match.length > 1) {
+            this.currentLanguage = match[1];
+        }
+    }
 };
 </script>
 
 <style scoped>
+.nav-container{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.language{
+    padding-right:2%;
+    width: 100%;
+    background: #FFF;
+    display:flex;
+    justify-content: end;
+    align-items: center;
+}
+.language img{
+    margin-right: .5%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
 @keyframes fadeInRight {
     0% {
         opacity: 0;
         right: -300px;
     }
-
     100% {
         opacity: 1;
         right: 0;
@@ -143,7 +202,6 @@ nav {
     color: #000;
     font-size: 1.4rem;
     z-index: 99;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .nav__logo img {

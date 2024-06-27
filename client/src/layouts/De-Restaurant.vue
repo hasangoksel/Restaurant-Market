@@ -9,16 +9,16 @@
                 </div>
             </div>
             <div class="campaign__section">
-                    <div class="content">
-                        <h2>Supermarket</h2>
-                        <router-link :to="`/${language}/supermarket`">See Products <i class="fa-solid fa-arrow-right"></i></router-link>
-                    </div>
-                    <div class="image">
-                        <img src="../assets/welcome-page/market-welcome.png" alt="Supermarket Products Image">
-                    </div>
+                <div class="content">
+                    <h2>Supermarkt</h2>
+                    <router-link :to="`/${language}/supermarket`">Produkte anzeigen <i class="fa-solid fa-arrow-right"></i></router-link>
+                </div>
+                <div class="image">
+                    <img src="../assets/welcome-page/market-welcome.png" alt="Supermarkt Produkte Bild">
+                </div>
             </div>
         </div>
-        <h3 class="categories-title"> Categories</h3>
+        <h3 class="categories-title"> Kategorien</h3>
         <div class="categories">
             <div class="categories__item" v-for="item in categories" :key="item.name">
                 <img :src="getImageUrl(item.image)" :alt="item.name">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="products__item__basket">
                     <span> € {{ item.price }}</span>
-                    <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</span>
+                    <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Hinzufügen</span>
                 </div>
             </div>
         </div>
@@ -65,21 +65,21 @@ export default {
                 },
                 {
                     image: "category-drink.svg",
-                    name: "Drink"
+                    name: "Getränke"
                 }
             ],
             products: [{
                     id: 0,
                     image: "products-burger.jpg",
                     name: "Hot Burger",
-                    detail: "Lorem ipsum dolor, sit amet consectetur adipisicingamet consectetur adipisicing adipisicing. ",
+                    detail: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
                     price: 10,
                 },
                 {
                     id: 1,
                     image: "products-burger.jpg",
                     name: "Hot Burger",
-                    detail: "Lorem ipsum dolor, sit amet consectetur adipisicingamet consectetur adipisicing adipisicing. ",
+                    detail: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ",
                     price: 18.25,
                 }
             ],

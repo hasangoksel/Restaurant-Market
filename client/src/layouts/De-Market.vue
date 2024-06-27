@@ -11,16 +11,16 @@
             <div class="campaign__section">
                 <div class="content">
                     <h2>Restaurant</h2>
-                    <router-link :to="`/${language}/restaurant`">See Products <i class="fa-solid fa-arrow-right"></i></router-link>
+                    <router-link :to="`/${language}/restaurant`">Produkte ansehen <i class="fa-solid fa-arrow-right"></i></router-link>
                 </div>
                 <div class="image">
-                    <img src="../assets/welcome-page/burger-welcome.png" alt="Restaurant Products Image">
+                    <img src="../assets/welcome-page/burger-welcome.png" alt="Restaurant Produkte Bild">
                 </div>
             </div>
         </div>
         <div class="market">
             <div class="categories">
-                <h3 class="categories-title">Categories</h3>
+                <h3 class="categories-title">Kategorien</h3>
                 <div class="categories__item" v-for="item in categories" :key="item.name">
                     <img :src="getImageUrl(item.image)" :alt="item.name">
                     <span>{{ item.name }}</span>
@@ -43,7 +43,7 @@
                             </div>
                             <span> € {{ item.price }}</span>
                         </div>
-                        <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</span>
+                        <span class="basket-button"><i class="fa-solid fa-cart-shopping"></i> Hinzufügen</span>
                     </div>
                 </div>
             </div>
@@ -70,50 +70,50 @@ export default {
             categories: [
                 {
                     image: "category-drink.svg",
-                    name: "Water & Drink"
+                    name: "Wasser & Getränke"
                 },
                 {
                     image: "category-chocolate.png",
-                    name: "Chocolate"
+                    name: "Schokolade"
                 },
                 {
                     image: "category-pasta.png",
-                    name: "Staple Food"
+                    name: "Grundnahrungsmittel"
                 }
             ],
             products: [
                 {
                     id: 0,
                     image: "product-1.jpeg",
-                    name: "Product",
+                    name: "Produkt",
                     count: 2,
                     price: 10,
                 },
                 {
                     id: 1,
                     image: "product-2.jpg",
-                    name: "Product",
+                    name: "Produkt",
                     count: 1,
                     price: 18.25,
                 },
                 {
                     id: 2,
                     image: "product-3.png",
-                    name: "Product",
+                    name: "Produkt",
                     count: 1,
                     price: 3,
                 },
                 {
                     id: 3,
                     image: "product-3.png",
-                    name: "Product",
+                    name: "Produkt",
                     count: 1,
                     price: 3,
                 },
                 {
                     id: 4,
                     image: "product-2.jpg",
-                    name: "Product",
+                    name: "Produkt",
                     count: 1,
                     price: 20,
                 },
