@@ -2,35 +2,57 @@
     <div class="nav-container">
         <div class="language">
             <img src="../assets/eng-flag.svg" alt="England Flag" @click="changeLanguage('en')">
-            <img src="../assets/de-flag.svg" alt="Deutschland Flag" @click="changeLanguage('de')">
+            <img src="../assets/sw-flag.svg" alt="Switzerland Flag" @click="changeLanguage('de')">
         </div>
-
+    
         <!-- İngilizce açılır menü -->
         <div v-if="isOpen && currentLanguage === 'en'" class="open-menu" :class="{ 'fadeOutRight': fadeOut }" @animationend="handleAnimationEnd">
             <span @click="closeMenu"><i class="fa-solid fa-xmark"></i></span>
             <ul>
-                <li><router-link :to="`/${language}/user-information`" @click.native="closeMenu"><i class="fa-solid fa-user"></i> My Information</router-link></li>
-                <li><router-link :to="`/${language}/restaurant`" @click.native="closeMenu"><i class="fa-solid fa-utensils"></i> Restaurant</router-link></li>
-                <li><router-link :to="`/${language}/supermarket`" @click.native="closeMenu"><i class="fa-solid fa-store"></i> Market</router-link></li>
-                <li><router-link :to="`/${language}/user`" @click.native="logout"><i class="fa-solid fa-right-from-bracket" style="margin-right: 5%;"></i> Logout</router-link></li>
+                <li>
+                    <router-link :to="`/${language}/user-information`" @click.native="closeMenu"><i class="fa-solid fa-user"></i> My Information</router-link>
+                </li>
+                <li>
+                    <router-link :to="`/${language}/restaurant`" @click.native="closeMenu"><i class="fa-solid fa-utensils"></i> Restaurant</router-link>
+                </li>
+                <li>
+                    <router-link :to="`/${language}/supermarket`" @click.native="closeMenu"><i class="fa-solid fa-store"></i> Market</router-link>
+                </li>
+                <li>
+                    <router-link :to="`/${language}/contact-us`" @click.native="closeMenu"><i class="fa-solid fa-envelope"></i> Contact Us</router-link>
+                </li>
+                <li>
+                    <router-link :to="`/${language}/user`" @click.native="logout"><i class="fa-solid fa-right-from-bracket" style="margin-right: 5%;"></i> Logout</router-link>
+                </li>
             </ul>
         </div>
-
+    
         <!-- Almanca açılır menü -->
         <div v-if="isOpen && currentLanguage === 'de'" class="open-menu" :class="{ 'fadeOutRight': fadeOut }" @animationend="handleAnimationEnd">
             <span @click="closeMenu"><i class="fa-solid fa-xmark"></i></span>
             <ul>
-                <li><router-link :to="`/${language}/user-information`" @click.native="closeMenu"><i class="fa-solid fa-user"></i> Meine Informationen</router-link></li>
-                <li><router-link :to="`/${language}/restaurant`" @click.native="closeMenu"><i class="fa-solid fa-utensils"></i> Restaurant</router-link></li>
-                <li><router-link :to="`/${language}/supermarket`" @click.native="closeMenu"><i class="fa-solid fa-store"></i> Markt</router-link></li>
-                <li><router-link :to="`/${language}/user`" @click.native="logout"><i class="fa-solid fa-right-from-bracket" style="margin-right: 5%;"></i> Ausloggen</router-link></li>
+                <li>
+                    <router-link :to="`/${language}/user-information`" @click.native="closeMenu"><i class="fa-solid fa-user"></i> Meine Informationen</router-link>
+                </li>
+                <li>
+                    <router-link :to="`/${language}/restaurant`" @click.native="closeMenu"><i class="fa-solid fa-utensils"></i> Restaurant</router-link>
+                </li>
+                <li>
+                    <router-link :to="`/${language}/supermarket`" @click.native="closeMenu"><i class="fa-solid fa-store"></i> Markt</router-link>
+                </li>
+                <li>
+                    <router-link :to="`/${language}/contact-us`" @click.native="closeMenu"><i class="fa-solid fa-envelope"></i> Kontaktieren Sie Uns</router-link>
+                </li>
+                <li>
+                    <router-link :to="`/${language}/user`" @click.native="logout"><i class="fa-solid fa-right-from-bracket" style="margin-right: 5%;"></i> Ausloggen</router-link>
+                </li>
             </ul>
         </div>
-
+    
         <nav>
             <div class="nav__logo">
-                <router-link to="/">
-                    <img src="../assets/logo/logosiyah.svg" alt="Yummykitchen Logo">
+                <router-link :to="currentLanguage === 'en' ? '/en' : '/'">
+                    <img src="../assets/logo/logo.svg" alt="Yummykitchen Logo">
                 </router-link>
             </div>
             <div class="nav__links">
@@ -48,7 +70,7 @@ export default {
         return {
             isOpen: false,
             fadeOut: false,
-            language: 'en', // Varsayılan dil
+            language: 'de', // Varsayılan dil
             currentLanguage: '', // Şu anki dil
         };
     },
@@ -78,7 +100,7 @@ export default {
         }
     },
     watch: {
-        '$route'() {
+        '$route' () {
             // Route değiştiğinde menüyü kapatın
             this.isOpen = false;
             this.fadeOut = false;
@@ -105,7 +127,7 @@ export default {
 .language{
     padding-right:2%;
     width: 100%;
-    background: #FFF;
+    background: #000;
     display:flex;
     justify-content: end;
     align-items: center;
@@ -198,7 +220,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #FFF;
+    background: #000;
     color: #000;
     font-size: 1.4rem;
     z-index: 99;
@@ -217,7 +239,7 @@ nav {
 }
 
 .nav__links a i {
-    color: #000;
+    color: #FFF;
     text-decoration: none;
     transition: color .3s ease-in-out;
 }
@@ -229,7 +251,7 @@ nav {
 .nav__links p i {
     font-size: 1.6rem;
     cursor: pointer;
-    color: #000;
+    color: #FFF;
     transition: all .5s ease-in-out;
 }
 

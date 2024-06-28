@@ -9,19 +9,19 @@
             <div class="welcome-nav__section">
                 <div class="content">
                     <h2>Restaurant</h2>
-                    <router-link to="/en/restaurant">See Products <i class="fa-solid fa-arrow-right"></i></router-link>
+                    <router-link to="/de/restaurant">Produkte ansehen <i class="fa-solid fa-arrow-right"></i></router-link>
                 </div>
                 <div class="image">
-                    <img src="../assets/welcome-page/burger-welcome.png" alt="Restaurant Products Image">
+                    <img src="../assets/welcome-page/burger-welcome.png" alt="Restaurant Produkte Bild">
                 </div>
             </div>
             <div class="welcome-nav__section">
                 <div class="content">
-                    <h2>Supermarket</h2>
-                    <router-link to="/en/supermarket">See Products <i class="fa-solid fa-arrow-right"></i></router-link>
+                    <h2>Supermarkt</h2>
+                    <router-link to="/de/supermarket">Produkte ansehen <i class="fa-solid fa-arrow-right"></i></router-link>
                 </div>
                 <div class="image">
-                    <img src="../assets/welcome-page/market-welcome.png" alt="Supermarket Products Image" >
+                    <img src="../assets/welcome-page/market-welcome.png" alt="Supermarkt Produkte Bild" >
                 </div>
             </div>
         </div>

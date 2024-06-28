@@ -12,6 +12,9 @@ import DeLoReUser   from "./layouts/De-LoReUser.vue";
 import DeUser       from "./layouts/De-User.vue";
 import DeMarket     from "./layouts/De-Market.vue";
 import DeRestaurant from "./layouts/De-Restaurant.vue";
+import DeWelcome    from "./layouts/De-Welcome.vue";
+import DeContactUs  from "./layouts/De-ContactUs.vue";
+import ContactUs    from "./layouts/ContactUs.vue";
 
 // Panel Pages
 import SupermarketPanel       from "./layouts/admin/Supermarket.vue";
@@ -33,7 +36,8 @@ const Router = createRouter({
     history: createWebHistory(),
     routes:[
         // Kullanıcı Arayüzü Linkleri
-        { path: '/',                     component: Welcome },
+        { path: '/',                     component: DeWelcome },
+        { path: '/en',                   component: Welcome },
         { path: '/en/restaurant',        component: Restaurant },
         { path: '/de/restaurant',        component: DeRestaurant },
         { path: '/en/supermarket',       component: Market },
@@ -44,6 +48,8 @@ const Router = createRouter({
         { path: '/de/cart',              component: DeCart},
         { path: '/en/user-information',  component: User},
         { path: '/de/user-information',  component: DeUser},
+        { path: '/de/contact-us',        component: DeContactUs},
+        { path: '/en/contact-us',        component: ContactUs},
 
 
 

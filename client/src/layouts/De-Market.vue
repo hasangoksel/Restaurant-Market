@@ -209,6 +209,7 @@ button {
     margin: 5% auto 2% auto;
     padding: 3%;
     flex-basis: 20%;
+    background: #FFF;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

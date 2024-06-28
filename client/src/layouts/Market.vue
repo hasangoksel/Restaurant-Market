@@ -208,6 +208,7 @@ button {
 .campaign__section {
     margin: 5% auto 2% auto;
     padding: 3%;
+    background: #FFF;
     flex-basis: 20%;
     display: flex;
     flex-direction: column;

@@ -27,6 +27,12 @@
                         <select v-model="order.state">
                             <option v-for="state in states" :key="state.id" :value="state.id">{{ state.name }}</option>
                         </select>
+                    </div>  
+                    <div class="element">
+                        <h4>Delivery time: </h4>
+                        <select v-model="order.minute">
+                            <option v-for="minute in minutes" :key="minute.id" :value="minute">{{ minute }} Minute</option>
+                        </select>
                     </div>
                     <div class="element">
                         <h4>Payment: </h4>
@@ -97,6 +103,7 @@ export default {
                     ],
                     totalPrice: 10,
                     state: 1,
+                    minute: 30,
                     paymentMethod: 'Credit Card'
                 }
             ],
@@ -105,7 +112,8 @@ export default {
                 { id: 1, name: 'Getting Ready' },
                 { id: 2, name: 'On the Road for Delivery' },
                 { id: 3, name: 'Completed' }
-            ]
+            ],
+            minutes: [10, 20, 30, 40, 50, 60, 70, 80, 90]
         };
     },
     methods: {
